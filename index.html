@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 600px;
+        width: 75%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+
+    <div id="buttonbar" class="mine">
+	<button id="btnaddmarker"> add marker </button>
+    </div>
+
+    <script>
+      var map;
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          draggable:true,
+          title:"Drag Me!"
+        });
+      }
+      
+      $('#btnaddmarker').on('click', function(){
+	addmarker(IT)
+      })
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnCwOESkUfrJzQyVWPnweF40LohTgIA_E&callback=initMap">
+    </script>
+  </body>
+</html>
