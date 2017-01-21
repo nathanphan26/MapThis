@@ -1,4 +1,4 @@
-      var map;
+     var map;
       function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
         map = new google.maps.Map(document.getElementById('map'), {
@@ -12,8 +12,18 @@
           title:"Drag Me!"
         });
       }
-      
-      $('#btnaddmarker').on('click', function(){
-        addmarker(IT)
-      })
+      var IT = {lat: -25.363, lng: 131.044};
 
+function addmarker(latilongi) {
+    var marker = new google.maps.Marker({
+        position: latilongi,
+        title: 'new marker',
+        draggable: true,
+        map: map
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+        content: '<div id="infodiv2">infowindow!</div>'
+    });
+    map.setCenter(marker.getPosition())
+}
